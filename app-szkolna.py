@@ -45,4 +45,39 @@ def zapytaj_o_dane():
 menu_glowne = ("utwórz", "zarządzaj", "koniec")
 podmenu_dla_utworz = ("uczeń", "nauczyciel", "wychowawca", "koniec")
 podmenu_dla_zarzadzaj = ("klasa", "uczeń", "nauczyciel", "wychowawca", "koniec")
+# trzymanie danych
+nauczyciele = []
+uczniowie = []
+wychowawcy = []
+
+#
+while True:
+    print(*menu_glowne, sep='\n')
+    polecenie = input("Wpisz polecenie: \n")
+    if polecenie == "utwórz":
+        print(*podmenu_dla_utworz, sep='\n')
+        tworzony_typ = input("Wybierz typ wpisu, który chcesz stworzyć \n"
+                             "lub wróć do poprzedniego menu (koniec).")
+        if tworzony_typ == "koniec":
+            print("Wracam do poprzedniego menu.")
+            continue
+        elif tworzony_typ == "uczeń":
+            zapytaj_o_dane()
+        elif tworzony_typ == "nauczyciel":
+            zapytaj_o_dane()
+            #TODO
+        elif tworzony_typ == "wychowawca":
+            zapytaj_o_dane()
+            #TODO
+    elif polecenie == "zarządzaj":
+        #TODO
+    elif polecenie == "koniec":
+        print("Dziękuję za wypowiedź, żegnam.")
+        break
+    else:
+        print(f"Nie znam polecenia \"{polecenie}\". Wracam do poprzedniego menu.")
+        continue
+
+
+
 
