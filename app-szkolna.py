@@ -36,6 +36,18 @@ class Wychowawca:
     def pokaz_klase_wychowawcy(self):
         print(f"{Wychowawca.dane} jest wychowawcą w klasie {Wychowawca.klasa}.")
 
+class Uczniowie:
+    def __init__(self, lista_uczniow=[]):
+        self.lista_uczniow = lista_uczniow
+
+    def dodaj_ucznia(self):
+        self.lista_uczniow.append(uczen)
+
+    def wypisz_uczniow(self):
+        for uczen in self.lista_uczniow:
+            print(uczen.dane)
+            print(uczen.klasa)
+
 # funkcje:
 def wczytaj_ucznia():
     dane = input("Podaj imię i nazwisko: \n")
@@ -60,11 +72,8 @@ def wczytaj_wychowawce():
 menu_glowne = ("utwórz", "zarządzaj", "koniec")
 podmenu_dla_utworz = ("uczeń", "nauczyciel", "wychowawca", "koniec")
 podmenu_dla_zarzadzaj = ("klasa", "uczeń", "nauczyciel", "wychowawca", "koniec")
-# trzymanie danych:
-nauczyciele = []
-uczniowie = []
-wychowawcy = []
 #
+uczniowie = Uczniowie()
 while True:
     print(*menu_glowne, sep='\n')
     polecenie = input("Wpisz polecenie: \n")
@@ -77,7 +86,8 @@ while True:
             continue
         elif tworzony_typ == "uczeń":
          nowy_uczen = wczytaj_ucznia()
-         print(f"Stworzono ucznia {nowy_uczen.dane}, w klasie {nowy_uczen.klasa} .")
+         uczniowie.dodaj_ucznia()
+         print(f"Stworzono nowego ucznia: {nowy_uczen.dane}, w klasie {nowy_uczen.klasa} .")
         elif tworzony_typ == "nauczyciel":
             nowy_nauczyciel = wczytaj_nauczyciela()
             #TODO
