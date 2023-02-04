@@ -1,4 +1,4 @@
-# mozliwe Classes
+# mozliwe Classes:
 class Uczen:
     def __init__(self, dane, klasa):
         self.dane = dane
@@ -11,10 +11,10 @@ class Uczen:
         print(f"Uczeń chodzi do klasy {Uczen.klasa}. ")
 
 class Nauczyciel:
-    def __init__(self, dane, przedmiot, klasy):
+    def __init__(self, dane, przedmiot, klasa):
         self.dane = dane
         self.przedmiot = przedmiot
-        self.klasy = klasy # klasy = []
+        self.klasa = klasa # klasy = []
 
     def pokaz_dane_nauczyciela(self):
         print(f"Imię i nazwisko nauczyciela to {Nauczyciel.dane}.")
@@ -23,7 +23,7 @@ class Nauczyciel:
         print(f"{Nauczyciel.dane} uczy przedmiotu o nazwie {Nauczyciel.przedmiot}.")
 
     def pokaz_klasy_nauczyciela(self):
-        print(f"{Nauczyciel.dane} uczy w następujących klasach: {Nauczyciel.klasy}")
+        print(f"{Nauczyciel.dane} uczy w następujących klasach: {Nauczyciel.klasa}")
 
 class Wychowawca:
     def __init__(self, dane, klasa):
@@ -36,20 +36,34 @@ class Wychowawca:
     def pokaz_klase_wychowawcy(self):
         print(f"{Wychowawca.dane} jest wychowawcą w klasie {Wychowawca.klasa}.")
 
-# funkcje
-def zapytaj_o_dane():
-    dane = input("Podaj imię i nazwisko: ")
-    return dane
+# funkcje:
+def wczytaj_ucznia():
+    dane = input("Podaj imię i nazwisko: \n")
+    klasa = input("Podaj klasę: \n")
+    uczen = Uczen(dane=dane, klasa=klasa)
+    return uczen
 
-# menu
+def wczytaj_nauczyciela():
+    dane = input("Podaj imię i nazwisko: \n")
+    przedmiot = input("Podaj nazwę przedmiotu: \n")
+    klasa = input("Podaj klasę: \n")
+    nauczyciel = Nauczyciel(dane=dane, przedmiot=przedmiot, klasa=klasa)
+    return nauczyciel
+
+def wczytaj_wychowawce():
+    dane = input("Podaj imię i nazwisko: \n")
+    klasa = input("Podaj klasę: \n")
+    wychowawca = Wychowawca(dane=dane, klasa=klasa)
+    return wychowawca
+
+# menu:
 menu_glowne = ("utwórz", "zarządzaj", "koniec")
 podmenu_dla_utworz = ("uczeń", "nauczyciel", "wychowawca", "koniec")
 podmenu_dla_zarzadzaj = ("klasa", "uczeń", "nauczyciel", "wychowawca", "koniec")
-# trzymanie danych
+# trzymanie danych:
 nauczyciele = []
 uczniowie = []
 wychowawcy = []
-
 #
 while True:
     print(*menu_glowne, sep='\n')
@@ -62,15 +76,28 @@ while True:
             print("Wracam do poprzedniego menu.")
             continue
         elif tworzony_typ == "uczeń":
-            zapytaj_o_dane()
+         nowy_uczen = wczytaj_ucznia()
+         print(f"Stworzono ucznia {nowy_uczen.dane}, w klasie {nowy_uczen.klasa} .")
         elif tworzony_typ == "nauczyciel":
-            zapytaj_o_dane()
+            nowy_nauczyciel = wczytaj_nauczyciela()
             #TODO
         elif tworzony_typ == "wychowawca":
-            zapytaj_o_dane()
+            nowy_wychowawca = wczytaj_wychowawce()
             #TODO
     elif polecenie == "zarządzaj":
-        #TODO
+        print(*podmenu_dla_zarzadzaj, sep='\n')
+        zarzadzany = input("Wybierz z menu jeden z elementów.")
+        if zarzadzany == "uczeń":
+            #TODO
+        elif zarzadzany == "nauczyciel":
+            #TODO
+        elif zarzadzany == "wychowawca":
+            #TODO
+        elif zarzadzany == "klasa":
+            #TODO
+        else:
+            print(f"Nie ma takiej opcji jak {zarzadzany}. Spróbuj ponownie.")
+            continue
     elif polecenie == "koniec":
         print("Dziękuję za wypowiedź, żegnam.")
         break
