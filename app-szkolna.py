@@ -1,4 +1,4 @@
-# mozliwe klasy
+# mozliwe Classes
 class Uczen:
     def __init__(self, dane, klasa):
         self.dane = dane
@@ -35,3 +35,14 @@ class Wychowawca:
 
     def pokaz_klase_wychowawcy(self):
         print(f"{Wychowawca.dane} jest wychowawcą w klasie {Wychowawca.klasa}.")
+
+# funkcje
+def zapytaj_o_dane():
+    dane = input("Podaj imię i nazwisko: ")
+    return dane
+
+# menu
+menu_glowne = ("utwórz", "zarządzaj", "koniec")
+podmenu_dla_utworz = ("uczeń", "nauczyciel", "wychowawca", "koniec")
+podmenu_dla_zarzadzaj = ("klasa", "uczeń", "nauczyciel", "wychowawca", "koniec")
+
