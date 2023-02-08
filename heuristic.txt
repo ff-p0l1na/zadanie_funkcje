@@ -1,0 +1,52 @@
+menu glowne, bierzemy polecenia z inputu:
+utworz
+zarzadzaj
+koniec
+jesli polecenie to utwórz:
+    wyswietl liste polecen
+    uczen
+    nauczyciel
+    wychowawca
+    koniec
+    pobierz z inputu typ
+    jesli typ to uczeń
+        pobierz imie i nazwisko
+        pobierz nazwe klasy
+        przypisz imie i nazwisko oraz klase do ucznia
+    jesli typ to nauczyciel
+        pobierz imie i nazwisko
+        pobierz nazwe prowadzonego przedmiotu
+        pobierz klasy, w ktorych prowadzi lekcje
+    jesli typ to wychowawca
+        pobierz imie i nazwisko
+        pobierz 1 klase, ktora ma
+    jesli typ to koniec
+        wroc do menu glownego
+jesli polecenie to zarządzaj:
+    wyswietl typy procesow:
+    klasa
+    uczen
+    nauczyciel
+    wychowawca
+    koniec
+    jesli proces klasa:
+        pobierz klasę, którą chesz wyświetlić
+        wypisz wszystkich uczniów, którzy należą do tej klasy
+        wypisz wychowawcę tejże klasy.
+    jesli proces uczen:
+        pobierz imie i nazwisko
+        wypisz wszystkie lekcje, które ma uczeń
+        wypisz nauczycieli, którzy prowadzą powyzsze lekcje
+    jesli proces nauczyciel:
+        pobierz imie i nazwisko
+        wypisz wszystkie klasy, które prowadzi nauczyciel
+    jesli proces wychowawca:
+        pobierz imie i nazwisko
+        wypisz wszystkich uczniów, których prowadzi wychowawca
+    jesli proces koniec:
+        wroc do pierwszego menu
+jesli polecenie to koniec:
+    program konczy prace
+jesli polecenie nie jest na krotce mozliwych polecen:
+    napisz ze polecenie {} jest zle. popros o ponowne wybranie polecenia.
+
