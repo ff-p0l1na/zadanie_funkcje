@@ -1,3 +1,5 @@
+import pprint
+
 class Szkola:
     def __init__(self):
         self.klasy = {}
@@ -45,7 +47,7 @@ class Nauczyciel:
             self.klasy = []
 
     def __repr__(self):
-        return f'({self.dane}, {self.przedmiot})'
+        return f'({self.dane}, {self.przedmiot}, {self.klasy})'
 
 
 class Wychowawca:
@@ -112,7 +114,25 @@ while True:
         elif tworzony_typ == "nauczyciel":
             wczytaj_nauczyciela(szkola)
     elif polecenie == "zarządzaj":
-        pass
+        print(*podmenu_dla_zarzadzaj, sep="\n")
+        zarzadzenie = input("Wpisz wybraną opcję lub wpisz \"koniec\" aby wrócić do poprzedniego menu. \n")
+        if zarzadzenie == "koniec":
+            print("Wracam do poprzedniego menu.")
+            continue
+        elif zarzadzenie == "klasa":
+            wybrana_klasa = input("Wpisz nazwę klasy: \n")
+            pprint.pprint(szkola.klasy.get(wybrana_klasa), indent=2)
+        elif zarzadzenie == "uczeń":
+            wybrany_uczen = input("Wpisz dane wybranego ucznia: \n")
+            # TODO
+
+            print(szkola.klasy)
+        elif zarzadzenie == "nauczyciel":
+            wybrany_nauczyciel = input("Podaj dane nauczyciela: \n")
+            print(szkola.nauczyciele[wybrany_nauczyciel])
+        elif zarzadzenie == "wychowawca":
+            wybrany_wychowawca = input("Podaj dane wychowawcy: \n")
+           # TODO
     elif polecenie == "koniec":
         break
 
