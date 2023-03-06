@@ -125,8 +125,6 @@ while True:
         elif zarzadzenie == "uczeń":
             wybrany_uczen = input("Wpisz dane wybranego ucznia: \n")
             # TODO
-
-            print(szkola.klasy)
         elif zarzadzenie == "nauczyciel":
             wybrany_nauczyciel = input("Podaj dane nauczyciela: \n")
             print(szkola.nauczyciele[wybrany_nauczyciel])
