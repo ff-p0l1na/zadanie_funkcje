@@ -4,6 +4,8 @@ class Szkola:
     def __init__(self):
         self.klasy = {}
         self.nauczyciele = {}
+        self.uczniowie = {}
+        self.wychowawcy = {}
 
     def wez_klase(self, nazwa_klasy):
         if nazwa_klasy not in self.klasy:
@@ -107,10 +109,12 @@ while True:
             uczen = wczytaj_ucznia()
             klasa = szkola.wez_klase(uczen.klasa)
             klasa['uczniowie'].append(uczen)
+            szkola.uczniowie[uczen.dane] = uczen
         elif tworzony_typ == "wychowawca":
             wychowawca = wczytaj_wychowawce()
             klasa = szkola.wez_klase(wychowawca.klasa)
             klasa['wychowawca'] = wychowawca
+            szkola.wychowawcy[wychowawca.dane] = wychowawca
         elif tworzony_typ == "nauczyciel":
             wczytaj_nauczyciela(szkola)
     elif polecenie == "zarządzaj":
@@ -124,15 +128,20 @@ while True:
             pprint.pprint(szkola.klasy.get(wybrana_klasa), indent=2)
         elif zarzadzenie == "uczeń":
             wybrany_uczen = input("Wpisz dane wybranego ucznia: \n")
-            # TODO
+            klasa_ucznia = szkola.uczniowie[wybrany_uczen].klasa
+            print(szkola.klasy[klasa_ucznia]["nauczyciele"])
         elif zarzadzenie == "nauczyciel":
             wybrany_nauczyciel = input("Podaj dane nauczyciela: \n")
-            print(szkola.nauczyciele[wybrany_nauczyciel])
+            for element in szkola.nauczyciele[wybrany_nauczyciel].klasy:
+                print(element["nazwa"])
         elif zarzadzenie == "wychowawca":
             wybrany_wychowawca = input("Podaj dane wychowawcy: \n")
-           # TODO
+            print(szkola.wychowawcy[wybrany_wychowawca].klasa)
+            the_klasa = szkola.wychowawcy[wybrany_wychowawca].klasa
+            print(szkola.klasy.get(the_klasa)["uczniowie"])
     elif polecenie == "koniec":
         break
+
 
 
 
